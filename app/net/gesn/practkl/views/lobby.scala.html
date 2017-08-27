@@ -1,0 +1,9 @@
+@import net.gesn.models.{ Header, Lobby }
+
+@(lobby: Lobby)(implicit flash: Flash, header: Header)
+
+@newMain("${lobby.title} | Lobby | ") {
+  <div class="Lobby">
+    <h2>@lobby.title</h2>
+  </div>
+}

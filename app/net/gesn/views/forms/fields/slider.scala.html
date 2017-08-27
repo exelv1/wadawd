@@ -1,0 +1,31 @@
+@(field: Field, label: String, min: Int, max: Int)
+
+<div class="form-group@if(field.hasErrors) { has-error}">
+  <label for="@field.id" class="col-sm-3 control-label">@label</label>
+  <div class="col-sm-9">
+    <input
+        id="@field.id"
+        data-slider-id='ex1Slider'
+        type="text"
+        data-slider-min="@min"
+        data-slider-max="@max"
+        data-slider-step="1"
+        data-slider-value="2"
+      />
+  </div>
+</div>
+
+@if(field.hasErrors) {
+<div class="col-sm-offset-3 col-sm-9">
+  <label id="alert@field.id" for="@field.id" style="color:#a94442;"> @field.error.get.message</label>
+</div>
+}
+
+<script>
+$( document ).ready(function() {
+  $('#@field.id').slider({
+    tooltip_position:'bottom',
+    tooltip: 'always',
+  });
+});
+</script>

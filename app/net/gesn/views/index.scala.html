@@ -1,0 +1,53 @@
+@()(implicit flash: Flash)
+
+@mainAnon("") {
+<!-- Header -->
+<header>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+        <div class="intro-text">
+          <h3>Your Journey to Esport Success Starts Here</h3>
+          <p>Global Esports Network is a whole new esports experience with game servers all over the world. With a plus membership you can join them and play in a secure area.</p>
+          <a href="@net.gesn.controllers.routes.AccountController.steamLogin"><img src="@routes.Assets.at("images/steam_login.png")" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Portfolio Grid Section -->
+<section class="our-mission" id="ourmission">
+  <div class="container">
+    <div>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h3>Our Mission</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-xs-12">
+          <div class="mission-box">
+            <h4>Match Making Done Properly</h4>
+            <p>We will provide access to a matchmaking system so you can play versus other players. Simply choose a server from a huge list of servers.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="mission-box">
+            <h4>Money Cups And Leagues</h4>
+            <p>We plan to offer you money cups: get paid for winning cups! Also we will offer leagues you can join to challenge other players and to get ranked.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="mission-box">
+            <h4>Stats And More</h4>
+            <p>Log in to our website to see your profile and your personal stats. You will be able to see information about all the matches you have played so far.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- col-main -->
+  </div><!-- container -->
+</section>
+}

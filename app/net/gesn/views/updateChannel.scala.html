@@ -1,0 +1,10 @@
+@* channel template *@
+
+@import net.gesn.models.{ Channel, Header }
+@import forms._
+
+@(channelForm: Form[Channel])(implicit flash: Flash, header: Header)
+
+@main("Update " + channelForm("uuid").value) {
+  @editChannel(channelForm, net.gesn.controllers.routes.ChannelController.updateChannel(channelForm("uuid").value.get), "Update channel", "Update")
+}

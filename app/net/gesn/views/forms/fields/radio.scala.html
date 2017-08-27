@@ -1,0 +1,23 @@
+@(field: Field, label: String, values: List[String])
+
+<div class="form-group@if(field.hasErrors) { has-error}">
+  <label class="control-label">@label</label>
+  @for(v <- values) {
+  <div class="radio">
+    <label>
+      <input
+        type="radio"
+        id="@field.id"
+        name="@field.name"
+        value="@v"
+      />
+      @v
+    </label>
+  </div>
+  }
+@if(field.hasErrors) {
+  <div class="col-sm-offset-3 col-sm-9">
+    <label id="alert@field.id" for="@field.id" style="color:#a94442;"> @field.error.get.message</label>
+  </div>
+  }
+</div>

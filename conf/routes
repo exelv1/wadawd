@@ -1,0 +1,42 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home
+GET          /                                    @net.gesn.controllers.MainController.index
+
+# Dash
+GET          /dashboard                           @net.gesn.practkl.controllers.DashboardController.dashboard
+
+# Practkl Channels
+GET          /play                                @net.gesn.practkl.controllers.ChannelController.channels
+GET          /channel/:uuid                       @net.gesn.practkl.controllers.ChannelController.channel(uuid: String)
+
+# Accounts
+GET         /account/register                     @net.gesn.controllers.AccountController.registerPage
+POST        /account/register                     @net.gesn.controllers.AccountController.register
+GET         /account/login                        @net.gesn.controllers.AccountController.loginPage
+POST        /account/login                        @net.gesn.controllers.AccountController.login
+GET         /account/login/steam                  @net.gesn.controllers.AccountController.steamLogin
+GET         /account/login/steam/callback         @net.gesn.controllers.AccountController.openIDCallback
+GET         /account/logout                       @net.gesn.controllers.AccountController.logout
+
+# Channels
+GET         /channels                             @net.gesn.controllers.ChannelController.channelsPage
+GET         /channel/new                          @net.gesn.controllers.ChannelController.createChannelPage
+POST        /channel/new                          @net.gesn.controllers.ChannelController.createChannel
+GET         /channel/:uuid                        @net.gesn.controllers.ChannelController.channelPage(uuid: String)
+GET         /channel/:uuid/edit                   @net.gesn.controllers.ChannelController.updateChannelPage(uuid: String)
+POST        /channel/:uuid/edit                   @net.gesn.controllers.ChannelController.updateChannel(uuid: String)
+
+# Lobby
+GET         /lobby/:uuid/                         @net.gesn.controllers.LobbyController.lobby(uuid: String)
+GET         /lobby/:uuid/join                     @net.gesn.controllers.LobbyController.join(uuid: String)
+GET         /lobby/:uuid/ready                    @net.gesn.controllers.LobbyController.setReady(uuid: String)
+GET         /lobby/:uuid/unready                  @net.gesn.controllers.LobbyController.setUnReady(uuid: String)
+
+# Gathers
+GET         /gathers/servers                      @net.gesn.controllers.GatherController.serversPage
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file                           controllers.Assets.at(path="/public", file)

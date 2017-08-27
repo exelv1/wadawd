@@ -1,0 +1,17 @@
+@import net.gesn.models.{ Channel, Header, Lobby }
+
+@(channel: Channel, lobbies: List[Lobby])(implicit flash: Flash, header: Header)
+
+@newMain("${channel.title} | Channel | ") {
+  <div class="channels">
+    <h2>@channel.title</h2>
+    Lobbies: @lobbies.size
+    <div class="row">
+      @lobbies.map { lobby =>
+        <div class="col-md-4">
+          @lobby.uuid
+        </div>
+      }
+    </div>
+  </div>
+}

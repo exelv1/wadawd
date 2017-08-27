@@ -1,0 +1,19 @@
+@(field: Field, label: String, inputType: String = "textbox", readOnly: Boolean = false)
+
+<div class="form-group@if(field.hasErrors) { has-error}">
+  <label for="@field.id" class="col-sm-3 control-label">@label</label>
+  <div class="col-sm-9">
+    <input
+      type="@inputType"
+      id="@field.id"
+      name="@field.name"
+      value="@field.value.getOrElse("")"
+      @if(readOnly) { readonly="readonly" }
+    />
+  </div>
+  @if(field.hasErrors) {
+  <div class="col-sm-offset-3 col-sm-9">
+    <label id="alert@field.id" for="@field.id" style="color:#a94442;"> @field.error.get.message</label>
+  </div>
+  }
+</div>

@@ -1,0 +1,96 @@
+DROP TABLE IF EXISTS game_players;
+DROP TABLE IF EXISTS games;
+DROP TABLE IF EXISTS lobby_players;
+DROP TABLE IF EXISTS lobbys;
+DROP TABLE IF EXISTS servers;
+DROP TABLE IF EXISTS game_types;
+DROP TABLE IF EXISTS server_types;
+DROP TABLE IF EXISTS channel_players;
+DROP TABLE IF EXISTS channels;
+DROP TABLE IF EXISTS logins;
+DROP TABLE IF EXISTS players;
+
+CREATE TABLE players (
+  steam_id VARCHAR(64) NOT NULL PRIMARY KEY,
+  name VARCHAR(125) NOT NULL,
+  first_login TIMESTAMP NOT NULL,
+  last_login TIMESTAMP NOT NULL
+);
+
+CREATE TABLE logins (
+  uuid MEDIUMINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  successful BOOLEAN NOT NULL,
+  steam_id VARCHAR(64) NOT NULL,
+  ip VARCHAR(64) NOT NULL,
+  login_time TIMESTAMP NOT NULL
+);
+
+CREATE TABLE channels (
+  uuid VARCHAR(32) NOT NULL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  flags TEXT,
+  onlinePlayers INT NOT NULL,
+  totalPlayers INT NOT NULL
+);
+
+CREATE TABLE channel_players (
+  uuid MEDIUMINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  steam_id VARCHAR(64) NOT NULL,
+  channel_id VARCHAR(32) NOT NULL,
+  time_added TIMESTAMP NOT NULL
+);
+
+CREATE TABLE server_types (
+  uuid VARCHAR(32) NOT NULL PRIMARY KEY,
+  description TEXT NOT NULL
+);
+
+CREATE TABLE game_types (
+  uuid VARCHAR(32) NOT NULL PRIMARY KEY,
+  description TEXT NOT NULL
+);
+
+CREATE TABLE servers (
+  uuid MEDIUMINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  join_password VARCHAR(64) NOT NULL,
+  root_password VARCHAR(64) NOT NULL,
+  server_name VARCHAR(255) NOT NULL,
+  ip VARCHAR(64) NOT NULL,
+  port INT NOT NULL,
+  location VARCHAR(64) NOT NULL,
+  server_type INT NOT NULL,
+  game_type INT NOT NULL
+);
+
+CREATE TABLE lobbys (
+  uuid VARCHAR(32) NOT NULL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  channel VARCHAR(32) NOT NULL,
+  game_type VARCHAR(32) NOT NULL,
+  max_ready INT
+);
+
+CREATE TABLE lobby_players (
+  uuid MEDIUMINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  steam_id VARCHAR(64) NOT NULL,
+  lobby_id VARCHAR(32) NOT NULL,
+  ready BOOLEAN NOT NULL
+);
+
+CREATE TABLE games (
+  uuid MEDIUMINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  created TIMESTAMP NOT NULL,
+  lobby VARCHAR(32) NOT NULL,
+  game_type VARCHAR(32) NOT NULL,
+  server MEDIUMINT NOT NULL,
+  is_complete BOOLEAN NOT NULL
+);
+
+CREATE TABLE game_players (
+  uuid MEDIUMINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  game_id MEDIUMINT NOT NULL,
+  steam_id VARCHAR(64) NOT NULL,
+  joined_game TIMESTAMP NOT NULL,
+  joined_server TIMESTAMP
+);

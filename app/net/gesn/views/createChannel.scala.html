@@ -1,0 +1,10 @@
+@* channel template *@
+
+@import net.gesn.models.{ Channel, Header }
+@import forms._
+
+@(channelForm: Form[Channel])(implicit flash: Flash, header: Header)
+
+@main("Create Channel") {
+  @editChannel(channelForm, net.gesn.controllers.routes.ChannelController.createChannel(), "Create a new channel", "Create")
+}

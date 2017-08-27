@@ -1,0 +1,91 @@
+@(title: String)(content: Html)(implicit flash: Flash)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Contentify">
+  <meta name="base-url" content="http://gesn.net">
+  <meta name="asset-url" content="http://gesn.net/">
+  <meta name="locale" content="en">
+  <meta name="date-format" content="YYYY-MM-DD">
+
+  <title>@{title}GESN | Global E-Sports Network</title>
+
+  <link rel="stylesheet" media="screen" href='@routes.Assets.at("lib/font-awesome/css/font-awesome.min.css")'>
+  <link media="all" type="text/css" rel="stylesheet" href='@routes.Assets.at("stylesheets/style.css")'>
+
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body class="page-landing">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <a class="http://gesn.net" href="#page-top"><img src="@routes.Assets.at("images/logo.png")" alt="GESN - Home"></a>
+</nav>
+
+@content
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="footer-above">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col col-md-4">
+          <h3>Locations</h3>
+          <p>We have game servers all over the world:<br> North America, Europe etc.</p>
+        </div>
+        <div class="footer-col col-md-4">
+          <h3>Social</h3>
+          <ul class="list-inline">
+            <li>
+              <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+            </li>
+            <li>
+              <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+            </li>
+            <li>
+              <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-col col-md-4">
+          <h3>About GESN</h3>
+          <p>Global Esports Network is a whole new esports league experience with game servers all over the world.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-below">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          Copyright &copy; All Rights Reserved 2015
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visible-sm">
+  <a class="btn btn-primary" href="#page-top">
+    <i class="fa fa-chevron-up"></i>
+  </a>
+</div>
+
+
+</body>
+</html>

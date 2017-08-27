@@ -1,0 +1,24 @@
+@* Register template file *@
+
+@import net.gesn.controllers.RegisterData
+@import forms.fields._
+
+@(registerForm: Form[RegisterData])(implicit flash: Flash)
+
+@mainAnon("Register | ") {
+<section class="page page-registration page-auth-register">
+  <h1 class="page-title">Create a new account</h1>
+  <form method="POST" action="@net.gesn.controllers.routes.AccountController.register" accept-charset="UTF-8" class="form-horizontal"><input name="_token" type="hidden" value="NJXKdUOv18Otc9k5gvONTmdIN9CEWrLJ1gchSGFM">
+    @textbox(registerForm("username"), "Username", "text")
+    @textbox(registerForm("email"), "Email", "email")
+    @textbox(registerForm("password"), "Password", "password")
+    @textbox(registerForm("passwordRepeat"), "Password repeat", "password")
+    <hr>
+    @textbox(registerForm("steamId"), "Steam ID", "text")
+    <hr>
+    <div>
+      <input class="btn btn-default" type="submit" value="Register"> or <a href="@net.gesn.controllers.routes.AccountController.loginPage">login</a>
+    </div>
+    </form>
+</section>
+}

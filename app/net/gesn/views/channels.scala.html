@@ -1,0 +1,60 @@
+@import net.gesn.models.{ Channel, Header }
+
+@(channels: List[Channel])(implicit flash: Flash, header: Header)
+
+@main("Gathers | ") {
+
+<section class="channels">
+  <div class="row">
+  </div>
+  <div class="row">
+    <a href="#">
+      <div class="col-md-4">
+        <div class="channel">
+          <div class="header">
+            <div class="title">Create your own</div>
+          </div>
+          <div class="main">
+            <div class="description">
+              Only £x.xx per month!<br />
+              Includes 1 server<br />
+              Coming soon!
+            </div>
+          </div>
+          <div class="footer">
+            <div class="col-md-6 action">
+              <a class="btn btn-primary">Create your own</a>
+            </div>
+            <div class="col-md-6 players">
+              <span class="badge">? / ?</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+    @channels.map { channel =>
+    <a href="@net.gesn.controllers.routes.ChannelController.channelPage(channel.uuid)">
+      <div class="col-md-4">
+        <div class="channel">
+          <div class="header">
+            <div class="title">@channel.title</div>
+          </div>
+          <div class="main">
+            <div class="description">@channel.description</div>
+          </div>
+          <div class="footer">
+            <div class="col-md-6 action">
+              <a class="btn btn-primary">Join now</a>
+            </div>
+            <div class="col-md-6 players">
+              <span class="badge">@channel.onlinePlayers / @channel.totalPlayers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+    }
+  </div>
+</section>
+
+}

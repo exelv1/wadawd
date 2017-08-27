@@ -1,0 +1,23 @@
+@* Login template file *@
+
+@import net.gesn.controllers.LoginData
+@import net.gesn.models.Header
+@import forms.fields._
+
+@(loginForm: Form[LoginData])(implicit flash: Flash, header: Header)
+
+@main("Login | ") {
+<section class="page page-login page-auth-login">
+  <h1 class="page-title">Login</h1>
+
+  <form method="POST" action="@net.gesn.controllers.routes.AccountController.login" accept-charset="UTF-8" class="form-horizontal">
+    @textbox(loginForm("email"), "Email", "email")
+    @textbox(loginForm("password"), "Password", "password")
+    <div class="form-actions">
+      <button type="submit" name="_form_submit" class="btn btn-default">Login</button> or <a href="@net.gesn.controllers.routes.AccountController.registerPage">register</a>
+      <a class="btn btn-default" style="float:right; margin-left:10px;" href="#">Forgot your password?</a>
+      <a class="btn btn-default" style="float:right;" href="@net.gesn.controllers.routes.AccountController.registerPage">Register</a>
+    </div>
+  </form>
+</section>
+}

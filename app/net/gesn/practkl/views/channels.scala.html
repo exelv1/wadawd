@@ -1,0 +1,16 @@
+@import net.gesn.models.{ Channel, Header }
+
+@(channels: List[Channel])(implicit flash: Flash, header: Header)
+
+@newMain("Play | ") {
+  <div class="channels">
+    Channels: @channels.size
+    <div class="row">
+      @channels.map { channel =>
+        <a href="@net.gesn.practkl.controllers.routes.ChannelController.channel(channel.uuid)"
+        <div class="col-md-4">
+        </div>
+      }
+    </div>
+  </div>
+}
